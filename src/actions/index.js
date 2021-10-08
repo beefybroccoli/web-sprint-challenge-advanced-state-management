@@ -36,12 +36,10 @@ export const fetchSmurfs = () => (dispatch) => {
     .get(API_URL)
     //...success - dispatch set data
     .then((resp) => {
-      console.log("action index.js - resp.data = ", resp.data);
       dispatch(fetchSuccess(resp.data));
     })
     //...failure - set error
     .catch((error) => {
-      console.log("action index.js - err = ", error);
       dispatch(fetchFail(JSON.stringify(error)));
     });
 }; //end fetchSmurfs
@@ -56,35 +54,15 @@ export const addSmurfs = (input_object) => (dispatch) => {
     .post(API_URL, input_object)
     //...success flag
     .then((resp) => {
-      console.log("action addSmurfs - resp = ", resp);
       dispatch(fetchSuccess(resp.data));
     })
     //...failure flag
     .catch((error) => {
-      console.log("action addSmurfs - error = ", error);
       dispatch(setError(JSON.stringify(error)));
     });
 };
-
-/*
-//ADD_SMURFS - allows us to add new smurf (including the name, nickname, position, summary)
-
-//SET_ERROR - allows us to set the value of the error message slice of state.
 
 //Task List:
 //1. Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
 //2. Add a standard action that allows us to add new smurf (including the name, nickname, position, summary)
 //3. Add a standard action that allows us to set the value of the error message slice of state.
-*/
-/*
-### Complete actions/index.js
-//  Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
-//   * [ ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve all smurfs from the api. Save the result of to our state and show an error if one is made.
-//   * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
-//   * [ ] Add a standard action that allows us to set the value of the error message slice of state.
-  
-  ### Complete App.js
-  Connect component to the fetchSmurfs action.
-  * [ ] Connect the fetchSmurfs actions to the App component.
-  * [ ] Call the fetchSmurfs action when the component first loads.
-*/

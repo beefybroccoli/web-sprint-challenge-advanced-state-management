@@ -28,7 +28,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        // arrayOfSmurfs: [...state.arrayOfSmurfs, ...action.payload],
         arrayOfSmurfs: [...action.payload],
       };
     // FETCH_FAIL,

@@ -19,8 +19,8 @@ const SmurfList = (props) => {
 
   return (
     <div className="listContainer">
-      {Array.from(props.arrayOfSmurfs).map((each, index) => {
-        return <Smurf smurf={each} key={each.id} />;
+      {Array.from(props.arrayOfSmurfs).map((each) => {
+        return <Smurf smurf={each} key={} />;
       })}
     </div>
   );

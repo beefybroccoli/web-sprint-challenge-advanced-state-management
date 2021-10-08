@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addSmurfs, setError } from "../actions/index";
+import { addSmurfs } from "../actions/index";
 import { initialState } from "../reducers/index";
 
 const AddForm = (props) => {
@@ -11,7 +11,7 @@ const AddForm = (props) => {
     description: "",
   };
   const [state, setState] = useState(initialState);
-
+ 
   const handleChange = (e) => {
     setState({
       ...state,
@@ -89,10 +89,10 @@ const AddForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { errorMessage: state.errorString };
+  errorMessage:state.errorString,
 };
 
-const mapActionToProps = { addSmurfs, setError };
+const mapActionToProps = { addSmurfs };
 
 export default connect(mapStateToProps, mapActionToProps)(AddForm);
 

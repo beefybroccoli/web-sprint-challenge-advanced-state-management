@@ -30,7 +30,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        arrayOfSmurfs: [...state.arrayOfSmurfs, ...action.payload],
+        // arrayOfSmurfs: [...state.arrayOfSmurfs, ...action.payload],
+        arrayOfSmurfs: [...action.payload],
       };
     // FETCH_FAIL,
     case FETCH_FAIL:
@@ -44,6 +45,7 @@ const reducer = (state = initialState, action) => {
       };
     // SET_ERROR,
     case SET_ERROR:
+      debugger;
       return { ...state, errorString: action.payload };
     default:
       return state;

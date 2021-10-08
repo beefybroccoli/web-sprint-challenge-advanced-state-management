@@ -19,6 +19,13 @@ export const fetchFail = (input_error) => {
   return { type: FETCH_FAIL, payload: input_error };
 };
 
+/**
+ * allows us to set the value of the error message slice of state.
+ */
+export const setError = (input_error) => {
+  return { type: SET_ERROR, payload: input_error };
+};
+
 //FETCH_SMURFS - performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
 //Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve all smurfs from the api. Save the result of to our state and show an error if one is made.
 export const fetchSmurfs = () => (dispatch) => {
@@ -33,9 +40,9 @@ export const fetchSmurfs = () => (dispatch) => {
       dispatch(fetchSuccess(resp.data));
     })
     //...failure - set error
-    .catch((err) => {
-      console.log("action index.js - err = ", err);
-      dispatch(fetchFail(err));
+    .catch((error) => {
+      console.log("action index.js - err = ", error);
+      dispatch(fetchFail(JSON.stringify(error)));
     });
 }; //end fetchSmurfs
 
@@ -43,16 +50,22 @@ export const fetchSmurfs = () => (dispatch) => {
  * ADD_SMURFS - allows us to add new smurf (including the name, nickname, position, summary)
  * @returns
  */
-export const addSmurfs = () => (dispatch) => {
+export const addSmurfs = (input_object) => (dispatch) => {
   //axios API call to API_URL
-  //...success flag
-  //...failure flag
+  axios
+    .post(API_URL + "2", input_object)
+    //...success flag
+    .then((resp) => {
+      console.log("action addSmurfs - resp = ", resp);
+      dispatch(fetchSuccess(resp.data));
+    })
+    //...failure flag
+    .catch((error) => {
+      console.log("action addSmurfs - error = ", error);
+      dispatch(setError(JSON.stringify(error)));
+    });
 };
 
-/**
- * allows us to set the value of the error message slice of state.
- */
-export const setError = () => {};
 /*
 //ADD_SMURFS - allows us to add new smurf (including the name, nickname, position, summary)
 

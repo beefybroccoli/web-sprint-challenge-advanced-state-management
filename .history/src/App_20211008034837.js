@@ -9,9 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchSmurfs();
-  }
+  componentDidMount() {}
   render() {
     return (
       <div className="App">

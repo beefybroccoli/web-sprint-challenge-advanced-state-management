@@ -23,9 +23,20 @@ export const fetchFail = (input_error) => {
 //Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve all smurfs from the api. Save the result of to our state and show an error if one is made.
 export const fetchSmurfs = () => (dispatch) => {
   //dispatch fetchStart
+  dispatch(fetchStart);
   //axios API call to API_URL
-  //...success - dispatch set data
-  //...failure - set error
+  axios
+    .get(API_URL)
+    //...success - dispatch set data
+    .then((resp) => {
+      console.log("action index.js - resp.data = ", resp.data);
+      dispatch(fetchSuccess(resp.data));
+    })
+    //...failure - set error
+    .catch((err) => {
+      console.log("action index.js - err = ", err);
+      dispatch(fetchFail(err));
+    });
 }; //end fetchSmurfs
 
 /**

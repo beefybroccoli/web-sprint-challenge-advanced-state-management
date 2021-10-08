@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import AddForm from "./components/AddForm";
 import SmurfList from "./components/SmurfList";
 import Header from "./components/Header";
-import { fetchSmurfs } from "./actions/index";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchSmurfs();
+  
+  componentDidMount(){
+    
   }
   render() {
     return (
@@ -27,10 +27,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {fetchSmu};
 };
 
-const mapActionToProps = { fetchSmurfs };
+const mapActionToProps = {};
 
 export default connect(mapStateToProps, mapActionToProps)(App);
 

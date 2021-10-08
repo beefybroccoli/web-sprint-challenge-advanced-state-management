@@ -10,7 +10,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchSmurfs();
+    this.props.
   }
   render() {
     return (

@@ -26,10 +26,16 @@ const reducer = (state = initialState, action) => {
       return { ...state, isFetching: true };
     // FETCH_SUCCESS,
     case FETCH_SUCCESS:
-      return { ...state, isFetching: false };
+      console.log("case FETCH_SUCCESS - action.payload = ", action.payload);
+      return {
+        ...state,
+        isFetching: false,
+        arrayOfSmurfs: [...state.arrayOfSmurfs, ...action.payload],
+      };
     // FETCH_FAIL,
     case FETCH_FAIL:
-      return { ...state, isFetching: false };
+      console.log("case FETCH_FAIL - action.payload = ", action.payload);
+      return { ...state, isFetching: false, errorString: action.payload };
     // ADD_SMURFS,
     case ADD_SMURFS:
       return {

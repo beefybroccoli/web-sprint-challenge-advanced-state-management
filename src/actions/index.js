@@ -1,23 +1,39 @@
 import axios from "axios";
 import { API_URL } from "../constant/constant";
-export const FETCH_START ="FETCH_START"
-export const FETCH_SUCCESS="FETCH_SUCCESS"
-export const FETCH_FAIL = "FETCH_FAIL"
+export const FETCH_START = "FETCH_START";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAIL = "FETCH_FAIL";
 export const FETCH_SMURFS = "FETCH_SMURFS";
 export const ADD_SMURFS = "ADD_SMURFS";
 export const SET_ERROR = "SET_ERROR";
 
+export const fetchStart = () => {
+  return { type: FETCH_START };
+};
+
+export const fetchSuccess = (input_data) => {
+  return { type: FETCH_SUCCESS, payload: input_data };
+};
+
+export const fetchFail = (input_error) => {
+  return { type: FETCH_FAIL, payload: input_error };
+};
+
 //FETCH_SMURFS - performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
-export const fetchSmurfs() => (dispatch) =>{
+export const fetchSmurfs = () => (dispatch) => {
+  //dispatch fetchStart
+  //axios API call to API_URL
+  //...success - dispatch set data
+  //...failure - set error
+}; //end fetchSmurfs
 
-    //dispatch fetchStart
+export const addSmurfs = () => (dispatch) => {
+  //axios API call to API_URL
+  //...success flag
+  //...failure flag
+};
 
-    //axios API call to API_URL
-    //...success - dispatch set data
-    //...failure - set error
-}//end fetchSmurfs
-
-
+export const setError = () => {};
 
 //ADD_SMURFS - allows us to add new smurf (including the name, nickname, position, summary)
 

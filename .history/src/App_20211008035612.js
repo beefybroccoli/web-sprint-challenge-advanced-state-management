@@ -28,7 +28,7 @@ class App extends Component {
 
 const mapActionToProps = { fetchSmurfs };
 
-export default connect(null, mapActionToProps)(App);
+export default connect(mapActionToProps)(App);
 
 /*
 //Task List:

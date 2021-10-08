@@ -26,9 +26,13 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {};
+};
+
 const mapActionToProps = { fetchSmurfs };
 
-export default connect(null, mapActionToProps)(App);
+export default connect(mapActionToProps)(App);
 
 /*
 //Task List:

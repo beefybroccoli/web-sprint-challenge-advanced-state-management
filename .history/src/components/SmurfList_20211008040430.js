@@ -43,5 +43,5 @@ export default connect(mapStateToProps)(SmurfList);
   
   * [x] Connect the smurfs and loading state values to the SmurfList component.
   * [x] Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
-  * [x] Replace the static isLoading variable with the state loading variable.
+  * [ ] Replace the static isLoading variable with the state loading variable.
 */

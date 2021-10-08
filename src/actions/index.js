@@ -53,7 +53,7 @@ export const fetchSmurfs = () => (dispatch) => {
 export const addSmurfs = (input_object) => (dispatch) => {
   //axios API call to API_URL
   axios
-    .post(API_URL + "2", input_object)
+    .post(API_URL, input_object)
     //...success flag
     .then((resp) => {
       console.log("action addSmurfs - resp = ", resp);
